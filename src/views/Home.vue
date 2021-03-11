@@ -1,18 +1,45 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="row home">
+    <div class="col-md-8 col-xs-12 sub-section-one">
+      <CardContainer></CardContainer>
+    </div>
+    <div class="col-md-3 col-xs-12 sub-section-two">
+      <Deals class="q-mb-md deals"></Deals>
+      <Tasks class="tasks"></Tasks>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import CardContainer from "@/components/UI/CardContainer";
+import Deals from "../components/Home/Deals";
+import Tasks from "../components/Home/Tasks";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    CardContainer,
+    Deals,
+    Tasks
   }
 };
 </script>
+
+<style scoped>
+.home {
+  height: 100%;
+  margin: 36px 38px 36px 36px;
+}
+.sub-section {
+  /*margin: 35px 0px 3px 3px;*/
+  padding: 16px 0 14px;
+  border-radius: 4px;
+  box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.06);
+}
+.sub-section-two {
+}
+.sub-section-one {
+  margin-right: 30px;
+}
+</style>
