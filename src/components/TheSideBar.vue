@@ -1,74 +1,48 @@
 <template>
   <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="side-bar">
-    <p>this is the side nav</p>
-    <!--      <q-list>-->
-    <!--        <q-item-label header>Essential Links</q-item-label>-->
-    <!--        <q-item clickable tag="a" target="_blank" href="https://quasar.dev">-->
-    <!--          <q-item-section avatar>-->
-    <!--            <q-icon name="school" />-->
-    <!--          </q-item-section>-->
-    <!--          <q-item-section>-->
-    <!--            <q-item-label>Docs</q-item-label>-->
-    <!--            <q-item-label caption>quasar.dev</q-item-label>-->
-    <!--          </q-item-section>-->
-    <!--        </q-item>-->
-    <!--        <q-item-->
-    <!--          clickable-->
-    <!--          tag="a"-->
-    <!--          target="_blank"-->
-    <!--          href="https://github.com/quasarframework/"-->
-    <!--        >-->
-    <!--          <q-item-section avatar>-->
-    <!--            <q-icon name="code" />-->
-    <!--          </q-item-section>-->
-    <!--          <q-item-section>-->
-    <!--            <q-item-label>Github</q-item-label>-->
-    <!--            <q-item-label caption>github.com/quasarframework</q-item-label>-->
-    <!--          </q-item-section>-->
-    <!--        </q-item>-->
-    <!--        <q-item-->
-    <!--          clickable-->
-    <!--          tag="a"-->
-    <!--          target="_blank"-->
-    <!--          href="https://chat.quasar.dev"-->
-    <!--        >-->
-    <!--          <q-item-section avatar>-->
-    <!--            <q-icon name="chat" />-->
-    <!--          </q-item-section>-->
-    <!--          <q-item-section>-->
-    <!--            <q-item-label>Discord Chat Channel</q-item-label>-->
-    <!--            <q-item-label caption>chat.quasar.dev</q-item-label>-->
-    <!--          </q-item-section>-->
-    <!--        </q-item>-->
-    <!--        <q-item-->
-    <!--          clickable-->
-    <!--          tag="a"-->
-    <!--          target="_blank"-->
-    <!--          href="https://forum.quasar.dev"-->
-    <!--        >-->
-    <!--          <q-item-section avatar>-->
-    <!--            <q-icon name="forum" />-->
-    <!--          </q-item-section>-->
-    <!--          <q-item-section>-->
-    <!--            <q-item-label>Forum</q-item-label>-->
-    <!--            <q-item-label caption>forum.quasar.dev</q-item-label>-->
-    <!--          </q-item-section>-->
-    <!--        </q-item>-->
-    <!--        <q-item-->
-    <!--          clickable-->
-    <!--          tag="a"-->
-    <!--          target="_blank"-->
-    <!--          href="https://twitter.com/quasarframework"-->
-    <!--        >-->
-    <!--          <q-item-section avatar>-->
-    <!--            <q-icon name="rss_feed" />-->
-    <!--          </q-item-section>-->
-    <!--          <q-item-section>-->
-    <!--            <q-item-label>Twitter</q-item-label>-->
-    <!--            <q-item-label caption>@quasarframework</q-item-label>-->
-    <!--          </q-item-section>-->
-    <!--        </q-item>-->
-    <!--      </q-list>-->
+    <p class="saaS-kit">Saas-Kit</p>
+
+    <div class="flex row" style="margin-left: 14px">
+      <q-avatar>
+        <img :src="userDetail.image" />
+      </q-avatar>
+      <div>
+        <p class="sierra-ferguson">{{ userDetail.name }}</p>
+        <p class="sfergusongmailcom">{{ userDetail.email }}</p>
+      </div>
+    </div>
+    <q-list bordered>
+      <div
+        v-for="navigation in navPoints"
+        :key="navigation.name"
+        style="margin-left: 14px"
+      >
+        <q-item
+          clickable
+          v-if="!navigation.subMenu"
+          v-ripple
+          @click="navigate(navigation.nav)"
+        >
+          <q-item-section avatar>
+            <q-icon :color="navigation.navColor" :name="navigation.icon" />
+          </q-item-section>
+          <q-item-section>{{ navigation.name }}</q-item-section>
+        </q-item>
+
+        <q-expansion-item
+          v-else
+          :icon="navigation.icon"
+          :label="navigation.name"
+        >
+          <q-item-section v-for="item in navigation.subMenu" :key="item.name">
+            <p class="flex justify-center">
+              <span class="circle-marker" :class="item.iconClass"></span
+              ><span>{{ item.name }}</span>
+            </p>
+          </q-item-section>
+        </q-expansion-item>
+      </div>
+    </q-list>
     <div @click="drawStatus()" class="toggle-btn">
       <span class="subtract"></span>
       <span class="toggle-sidebar"> Toggle sidebar</span>
@@ -82,13 +56,98 @@ export default {
   data() {
     return {
       leftDrawerOpen: false,
-      miniMode: false
+      miniMode: false,
+      userDetail: {
+        name: "Sierra Ferguson",
+        email: "s.ferguson@gmail.com",
+        image: "https://cdn.quasar.dev/img/avatar.png"
+      },
+      navPoints: [
+        {
+          name: "Home",
+          icon: "bluetooth",
+          nav: "/",
+          navColor: "secondary"
+        },
+        {
+          name: "Tasks",
+          icon: "view_agenda",
+          nav: "tasks",
+          navColor: "#c2cfe0",
+          subMenu: [
+            {
+              name: "Active",
+              iconClass: "active"
+            },
+            {
+              name: "Completed",
+              iconClass: "completed"
+            },
+            {
+              name: "Ended",
+              iconClass: "ended"
+            }
+          ]
+        },
+        {
+          name: "Email",
+          icon: "mail",
+          nav: "email",
+          navColor: "#c2cfe0",
+          subMenu: [
+            {
+              name: "Drafts",
+              iconClass: "active"
+            },
+            {
+              name: "Scheduled",
+              iconClass: "scheduled"
+            },
+            {
+              name: "Sent",
+              iconClass: "completed"
+            },
+            {
+              name: "Archived",
+              iconClass: "ended"
+            }
+          ]
+        },
+        {
+          name: "Contacts",
+          icon: "perm_identity",
+          nav: "contacts",
+          navColor: "#c2cfe0"
+        },
+        {
+          name: "Chats",
+          icon: "chat_bubble_outline",
+          nav: "chats",
+          navColor: "#c2cfe0"
+        },
+        {
+          name: "Deals",
+          icon: "bluetooth",
+          nav: "deals",
+          navColor: "#c2cfe0"
+        },
+        {
+          name: "Settings",
+          icon: "more_horiz",
+          nav: "deals",
+          navColor: "#c2cfe0"
+        }
+      ]
     };
   },
   methods: {
     drawStatus() {
       this.leftDrawerOpen = !this.leftDrawerOpen;
-      // this.$emit("toggle-drawer");
+    },
+    navigate(navPath) {
+      console.log(navPath);
+      // go to specified route
+      this.$router.push(navPath);
     }
   }
 };
@@ -124,6 +183,77 @@ export default {
 }
 .toggle-btn {
   cursor: pointer;
-  bottom: 3%;
+  margin-bottom: -60%;
+  /*bottom: 3%;*/
+}
+.saaS-kit {
+  width: 69px;
+  height: 26px;
+  margin: 0 163px 42px 24px;
+  /*font-family: OpenSans;*/
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #109cf1;
+}
+
+.sierra-ferguson {
+  width: 146px;
+  height: 21px;
+  margin: 3px 0 2px 16px;
+  /*font-family: Poppins;*/
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #192a3e;
+}
+.sfergusongmailcom {
+  width: 146px;
+  height: 17px;
+  margin: 2px 0 3px 16px;
+  /*font-family: Poppins;*/
+  font-size: 11px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.11px;
+  text-align: left;
+  color: #90a0b7;
+}
+
+.circle-marker {
+  width: 8px;
+  height: 8px;
+  flex-grow: 0;
+  margin: 6px 8px 6px 0;
+}
+
+.sub-menu {
+  width: 176px;
+  height: 20px;
+  flex-grow: 0;
+  /* margin: 0 0 8px 0px; */
+  margin-left: 20%;
+}
+.active {
+  border: solid 2px #ffb946;
+}
+.completed {
+  border: solid 2px #2ed47a;
+}
+.ended {
+  border: solid 2px #f7685b;
+}
+.scheduled {
+  border: solid 2px #885af8;
 }
 </style>
