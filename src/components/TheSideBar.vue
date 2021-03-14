@@ -4,7 +4,12 @@
 
     <div class="flex row" style="margin-left: 14px">
       <q-avatar>
-        <img :src="userDetail.image" />
+        <img
+          :src="userDetail.image"
+          :alt="userDetail.name"
+          width="100%"
+          height="100%"
+        />
       </q-avatar>
       <div>
         <p class="sierra-ferguson">{{ userDetail.name }}</p>
@@ -65,7 +70,7 @@ export default {
       navPoints: [
         {
           name: "Home",
-          icon: "bluetooth",
+          icon: "window",
           nav: "/",
           navColor: "secondary"
         },
@@ -233,6 +238,7 @@ export default {
 .circle-marker {
   width: 8px;
   height: 8px;
+  border-radius: 50%;
   flex-grow: 0;
   margin: 6px 8px 6px 0;
 }

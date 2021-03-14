@@ -33,7 +33,12 @@
           <td class="text-left indiv-name">
             <q-checkbox class="checkbox" size="xs" v-model="info.selected" />
             <q-avatar size="md">
-              <img src="https://cdn.quasar.dev/img/avatar.png" />
+              <img
+                src="https://cdn.quasar.dev/img/avatar.png"
+                width="100%"
+                height="100%"
+                :alt="info.name"
+              />
             </q-avatar>
             {{ info.name }}
           </td>
@@ -270,7 +275,7 @@ td {
   width: 60px;
   height: 20px;
   margin: 2px 24px;
-  font-family: Poppins;
+  /* font-family: Poppins; */
   font-size: 13px;
   font-weight: normal;
   font-stretch: normal;
@@ -285,7 +290,7 @@ td {
   width: 130px;
   height: 20px;
   margin: 2px 0 2px 24px;
-  font-family: Poppins;
+  /* font-family: Poppins; */
   font-size: 13px;
   font-weight: normal;
   font-stretch: normal;
@@ -299,7 +304,7 @@ td {
   width: 84px;
   height: 20px;
   margin: 0 16px 0 24px;
-  font-family: Poppins;
+  /* font-family: Poppins; */
   font-size: 13px;
   font-weight: 500;
   font-stretch: normal;
@@ -314,7 +319,7 @@ td {
   width: 16px;
   height: 16px;
   /* margin: 2px 24px 2px 0; */
-  font-family: Poppins;
+  /* font-family: Poppins; */
   font-size: 9px;
   font-weight: bold;
   font-stretch: normal;
