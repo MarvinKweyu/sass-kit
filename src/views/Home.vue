@@ -1,7 +1,7 @@
 <template>
   <div class="row home">
     <div class="col-md-8 col-xs-12 sub-section-one">
-      <CardContainer></CardContainer>
+      <TheTaskListContainer></TheTaskListContainer>
     </div>
     <div class="col-md-3 col-xs-12 sub-section-two">
       <Deals class="q-mb-md deals"></Deals>
@@ -12,14 +12,14 @@
 
 <script>
 // @ is an alias to /src
-import CardContainer from "@/components/UI/CardContainer";
+import TheTaskListContainer from "@/components/Home/TheTaskListContainer";
 import Deals from "../components/Home/Deals";
 import Tasks from "../components/Home/Tasks";
 
 export default {
   name: "Home",
   components: {
-    CardContainer,
+    TheTaskListContainer,
     Deals,
     Tasks
   }
@@ -29,6 +29,7 @@ export default {
 <style scoped>
 .home {
   height: 100%;
+  /* width: 100%; */
   margin: 36px 38px 36px 36px;
 }
 .sub-section {
