@@ -1,6 +1,8 @@
 <template>
   <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="side-bar">
-    <p class="saaS-kit">Saas-Kit</p>
+    <div class="sidebar-header">
+      <p class="saaS-kit">SaaS-Kit</p>
+    </div>
 
     <div class="flex row" style="margin-left: 14px">
       <q-avatar>
@@ -192,10 +194,10 @@ export default {
   /*bottom: 3%;*/
 }
 .saaS-kit {
-  width: 69px;
+  /*width: 69px;*/
   height: 26px;
-  margin: 0 163px 42px 24px;
-  /*font-family: OpenSans;*/
+  margin: 17px 163px 42px 24px;
+  font-family: OpenSans, Poppins, serif;
   font-size: 18px;
   font-weight: 600;
   font-stretch: normal;
@@ -224,7 +226,6 @@ export default {
   width: 146px;
   height: 17px;
   margin: 2px 0 3px 16px;
-  /*font-family: Poppins;*/
   font-size: 11px;
   font-weight: 500;
   font-stretch: normal;
@@ -261,5 +262,10 @@ export default {
 }
 .scheduled {
   border: solid 2px #885af8;
+}
+.sidebar-header {
+  border-bottom: 1px solid #ebeff2;
+  margin-bottom: 12px;
+  height: 60px;
 }
 </style>
