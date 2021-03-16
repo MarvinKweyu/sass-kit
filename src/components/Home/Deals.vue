@@ -11,7 +11,7 @@
       <div id="chart">
         <apexchart
           type="area"
-          height="350"
+          height="250"
           :options="chartOptions"
           :series="series"
         ></apexchart>
@@ -54,10 +54,15 @@ export default {
             "2018-09-19T06:30:00.000Z"
           ]
         },
+        yaxis: {
+          type: "int",
+          categories: ["50", "100", "150", "200"]
+        },
         tooltip: {
-          x: {
-            format: "dd/MM/yy HH:mm"
-          }
+          // x: {
+          //   format: "dd/MM/yy HH:mm"
+          // }
+          y: {}
         }
       }
     };
@@ -67,7 +72,7 @@ export default {
 
 <style scoped>
 .my-card {
-  height: 45%;
+  height: 48%;
 }
 .head-section {
   /* margin: 15px 0 16px; */
