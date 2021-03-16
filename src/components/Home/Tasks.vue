@@ -75,7 +75,7 @@ export default {
 
 <style scoped>
 .my-card {
-  height: 45%;
+  height: 48%;
 }
 .head-section {
   /* margin: 15px 0 16px; */
