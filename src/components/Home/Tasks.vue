@@ -18,9 +18,7 @@
         :start-angle="90"
         :thickness="10"
       >
-        <span class="percentage">
-          {{ completedPercentage.value }}%
-        </span>
+        <span class="percentage"> {{ completedPercentage.value }}% </span>
       </vc-donut>
     </q-card-section>
   </q-card>

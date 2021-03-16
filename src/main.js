@@ -6,6 +6,11 @@ import "./quasar";
 import Donut from "vue-css-donut-chart";
 import "vue-css-donut-chart/dist/vcdonut.css";
 
+import VueApexCharts from "vue-apexcharts";
+Vue.use(VueApexCharts);
+
+Vue.component("apexchart", VueApexCharts);
+
 Vue.use(Donut);
 
 Vue.config.productionTip = false;

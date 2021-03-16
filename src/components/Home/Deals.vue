@@ -8,16 +8,60 @@
     </q-card-section>
 
     <q-card-section>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet
-      cupiditate error esse iusto modi nobis odit praesentium qui, quod ratione,
-      sapiente unde. Aspernatur culpa dolor facilis iste magni sequi?
+      <div id="chart">
+        <apexchart
+          type="area"
+          height="350"
+          :options="chartOptions"
+          :series="series"
+        ></apexchart>
+      </div>
     </q-card-section>
   </q-card>
 </template>
 
 <script>
 export default {
-  name: "Deals"
+  name: "Deals",
+  data() {
+    return {
+      series: [
+        {
+          name: "series1",
+          data: [31, 40, 28, 51, 42, 109, 100]
+        }
+      ],
+      chartOptions: {
+        chart: {
+          height: 350,
+          type: "area"
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: "smooth"
+        },
+        xaxis: {
+          type: "datetime",
+          categories: [
+            "2018-09-19T00:00:00.000Z",
+            "2018-09-19T01:30:00.000Z",
+            "2018-09-19T02:30:00.000Z",
+            "2018-09-19T03:30:00.000Z",
+            "2018-09-19T04:30:00.000Z",
+            "2018-09-19T05:30:00.000Z",
+            "2018-09-19T06:30:00.000Z"
+          ]
+        },
+        tooltip: {
+          x: {
+            format: "dd/MM/yy HH:mm"
+          }
+        }
+      }
+    };
+  }
 };
 </script>
 
@@ -61,5 +105,8 @@ export default {
 
 .show-monthly .text-style-1 {
   color: #6a707e;
+}
+.chart {
+  height: 250px;
 }
 </style>
