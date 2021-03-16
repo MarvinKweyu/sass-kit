@@ -6,7 +6,8 @@
         {{ taskAnalysis.taskTotal }}
       </p>
       <p class="week-counter">
-        <span class="text-style-1">Show: </span> <span >This week</span>
+        <span class="text-style-1">Show: </span>
+        <span>This week <i class="fas fa-caret-down"></i></span>
       </p>
     </div>
     <div class="q-mb-sm">
