@@ -28,16 +28,23 @@ export default {
       series: [
         {
           name: "series1",
-          data: [31, 40, 28, 51, 42, 109, 100]
+          data: [20, 30, 40, 50, 100, 110, 100]
         }
       ],
       chartOptions: {
         chart: {
           height: 350,
-          type: "area"
+          type: "area",
+          zoom: {
+            enabled: false
+          }
         },
         dataLabels: {
           enabled: false
+        },
+        subtitle: {
+          text: "Closed Deals",
+          align: "left"
         },
         stroke: {
           curve: "smooth"
@@ -111,7 +118,19 @@ export default {
 .show-monthly .text-style-1 {
   color: #6a707e;
 }
-.chart {
-  height: 250px;
+>>> text {
+  width: 149px;
+  height: 16px;
+  /*margin: 0 0 0 8px;*/
+  margin-bottom: 500px;
+  font-family: Poppins;
+  font-size: 10px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #192a3e;
 }
 </style>
