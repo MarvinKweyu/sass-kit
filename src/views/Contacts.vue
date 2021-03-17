@@ -1,9 +1,8 @@
 <template>
   <div class="q-mt-auto">
-    <div class="flex row justify-between">
-      <p>Company: All</p>
-      <!--      <q-btn color="#109cf1" label="Add contact" />-->
-      <div class="q-pa-md q-gutter-sm">
+    <div class="flex row justify-between q-pa-md ">
+      <p class="company-all">Company: <span class="text-style-1">All</span></p>
+      <div class="q-gutter-sm">
         <q-btn label="Add contact" class="add-contact" />
       </div>
     </div>
@@ -29,11 +28,12 @@ export default {
   border-radius: 4px;
   box-shadow: 0 4px 10px 0 rgba(16, 156, 241, 0.24);
   background-color: #109cf1;
+  color: #ffffff;
+  text-transform: initial;
 }
 .Add-contact {
   width: 132px;
   height: 20px;
-  font-family: Poppins;
   font-size: 13px;
   font-weight: 600;
   font-stretch: normal;
@@ -42,5 +42,24 @@ export default {
   letter-spacing: 0.13px;
   text-align: center;
   color: #ffffff;
+}
+.company-all {
+  width: 81px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 0 5px 0 0;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.12px;
+  text-align: left;
+  color: #6a707e;
+}
+
+.company-all .text-style-1 {
+  color: #109cf1;
 }
 </style>
