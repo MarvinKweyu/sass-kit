@@ -28,6 +28,7 @@
           v-for="info in tableData"
           :key="info.name"
           @click="selectContact(info.name)"
+          class="table-row"
           style="cursor:pointer;"
         >
           <td class="text-left indiv-name">
@@ -329,5 +330,13 @@ td {
   text-align: center;
   color: #ffffff;
   background: #334d6e;
+}
+.table-row {
+  height: 64px;
+  margin: 1px 0 0;
+  padding: 20px 24px;
+}
+.table-row :hover {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
 </style>
