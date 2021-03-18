@@ -1,29 +1,35 @@
 <template>
   <q-header class="search-bar">
-    <q-toolbar>
-      <div class="row flex justify-between">
-        <div>
-          <q-btn
-            flat
-            dense
-            round
-            aria-label="Menu"
-            icon="search"
-            class="icon search"
-          />
-          <span class="search">
-            Global search
-          </span>
-        </div>
-        <div class="flex justify-end"><i class="far fa-bell icon"></i></div>
+    <div class="row flex justify-between">
+      <div class="q-mt-md q-ml-lg row">
+        <q-btn
+          flat
+          dense
+          aria-label="Menu"
+          icon="search"
+          class="icon search q-mb-0"
+        />
+        <!--        <q-icon name="search" class="icon search q-mb-0" />-->
+        <q-input
+          borderless
+          v-model="searchTerm"
+          class="search q-mb-xl"
+          placeholder="Global search"
+        />
       </div>
-    </q-toolbar>
+      <div class="q-pa-md"><i class="far fa-bell icon"></i></div>
+    </div>
   </q-header>
 </template>
 
 <script>
 export default {
-  name: "TheHeader"
+  name: "TheHeader",
+  data() {
+    return {
+      searchTerm: null
+    };
+  }
 };
 </script>
 
