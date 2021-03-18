@@ -123,7 +123,6 @@ export default {
   height: 16px;
   /*margin: 0 0 0 8px;*/
   margin-bottom: 500px;
-  font-family: Poppins;
   font-size: 10px;
   font-weight: normal;
   font-stretch: normal;
