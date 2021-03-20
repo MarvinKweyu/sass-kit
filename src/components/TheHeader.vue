@@ -2,18 +2,15 @@
   <q-header class="search-bar">
     <div class="row flex justify-between">
       <div class="q-mt-md q-ml-lg row">
-        <q-btn
-          flat
-          dense
-          aria-label="Menu"
-          icon="search"
+        <q-icon
+          name="search"
           class="icon search q-mb-0"
+          style="font-size: 18px;"
         />
-        <!--        <q-icon name="search" class="icon search q-mb-0" />-->
         <q-input
           borderless
           v-model="searchTerm"
-          class="search q-mb-xl"
+          class="search q-mb-lg q-pb-lg"
           :placeholder="searchPlaceHolder"
         />
       </div>
@@ -47,6 +44,8 @@ export default {
 .search {
   /*width: 895px;*/
   height: 18px;
+  /*  since we are using q-icons use font size */
+  font-size: 18px;
   flex-grow: 0;
   /*margin: 1px 0 1px 12px;*/
   font-size: 12px;
