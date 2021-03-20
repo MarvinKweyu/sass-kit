@@ -3,7 +3,10 @@
     <q-card-section class="flex row justify-between head-section">
       <div class="task-title">Tasks</div>
       <p class="show-this-month">
-        <span>Show: </span> <span class="time-filter">This week</span>
+        <span>Show: </span>
+        <span class="time-filter"
+          >This week <i class="q-ml-xm fas fa-caret-down time-filter"> </i
+        ></span>
       </p>
     </q-card-section>
 
@@ -98,7 +101,7 @@ export default {
 }
 
 .show-this-month {
-  width: 106px;
+  /* width: 106px; */
   height: 18px;
   flex-grow: 0;
   margin: 0 6px 0 0;

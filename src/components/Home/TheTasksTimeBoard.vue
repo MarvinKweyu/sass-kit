@@ -7,7 +7,9 @@
       </p>
       <p class="week-counter">
         <span class="text-style-1">Show: </span>
-        <span>This week <i class="fas fa-caret-down"></i></span>
+        <span
+          >This week <i class="q-ml-xm fas fa-caret-down text-style-1"></i
+        ></span>
       </p>
     </div>
     <div class="q-mb-sm">
@@ -126,7 +128,7 @@ export default {
   color: #334d6e;
 }
 .week-counter {
-  width: 97px;
+  /* width: 97px; */
   height: 18px;
   flex-grow: 0;
   margin: 0 6px 0 0;

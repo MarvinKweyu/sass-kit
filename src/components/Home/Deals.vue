@@ -3,7 +3,10 @@
     <q-card-section class="flex justify-between head-section q-mb-none">
       <div class="deal-title">Deals</div>
       <p class="show-monthly">
-        <span>Show: </span> <span class="text-style-1">This week</span>
+        <span>Show: </span>
+        <span class="text-style-1"
+          >This week <i class="q-ml-xm fas fa-caret-down text-style-1"> </i
+        ></span>
       </p>
     </q-card-section>
 
