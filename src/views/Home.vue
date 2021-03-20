@@ -22,6 +22,9 @@ export default {
     TheTaskListContainer,
     Deals,
     Tasks
+  },
+  created() {
+    this.$store.commit("setSearchPlaceHolder", "Global search");
   }
 };
 </script>

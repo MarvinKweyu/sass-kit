@@ -14,7 +14,7 @@
           borderless
           v-model="searchTerm"
           class="search q-mb-xl"
-          placeholder="Global search"
+          :placeholder="searchPlaceHolder"
         />
       </div>
       <div class="q-pa-md"><i class="far fa-bell icon"></i></div>
@@ -29,6 +29,11 @@ export default {
     return {
       searchTerm: null
     };
+  },
+  computed: {
+    searchPlaceHolder() {
+      return this.$store.getters.searchPlaceHolder;
+    }
   }
 };
 </script>
