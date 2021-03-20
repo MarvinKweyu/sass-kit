@@ -4,8 +4,19 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    searchBarPlaceHolder: null
+  },
+  mutations: {
+    setSearchPlaceHolder(state, holder) {
+      state.searchBarPlaceHolder = holder;
+    }
+  },
   actions: {},
-  modules: {}
+  modules: {},
+  getters: {
+    searchPlaceHolder(state) {
+      return state.searchBarPlaceHolder;
+    }
+  }
 });
