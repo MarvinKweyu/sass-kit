@@ -16,6 +16,9 @@ export default {
   name: "Contacts",
   components: {
     TableView
+  },
+  created() {
+    this.$store.commit("setSearchPlaceHolder", "Search for a contact");
   }
 };
 </script>
