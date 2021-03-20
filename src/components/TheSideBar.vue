@@ -5,7 +5,7 @@
     </div>
 
     <div class="flex row" style="margin-left: 14px">
-      <q-avatar>
+      <q-avatar size="44px">
         <img
           :src="userDetail.image"
           :alt="userDetail.name"
