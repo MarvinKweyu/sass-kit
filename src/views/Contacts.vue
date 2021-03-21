@@ -1,7 +1,11 @@
 <template>
   <div class="q-mt-auto">
     <div class="flex row justify-between q-pa-md ">
-      <p class="company-all">Company: <span class="text-style-1">All</span></p>
+      <p class="company-all q-mt-md">
+        <span>Company: </span>
+        <span class="text-style-1">All</span>
+        <span><i class="q-ml-sm fas fa-caret-down "> </i></span>
+      </p>
       <div class="q-gutter-sm">
         <q-btn label="Add contact" class="add-contact" />
       </div>
@@ -47,7 +51,6 @@ export default {
   color: #ffffff;
 }
 .company-all {
-  width: 81px;
   height: 18px;
   flex-grow: 0;
   margin: 0 5px 0 0;
