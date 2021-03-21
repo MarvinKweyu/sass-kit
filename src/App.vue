@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf" style="background-color: #f5f6f8;">
     <TheHeader class="header" />
-    <TheSideBar />
+    <TheSideBar class="side" />
 
     <q-page-container class="main-view">
       <router-view></router-view>
@@ -28,7 +28,10 @@ export default {
   height: 60px;
   /*background-color: #ffffff;*/
 }
-
+.side {
+  border: 2px solid red;
+  box-shadow: 6px 0 18px 0 rgba(0, 0, 0, 0.06);
+}
 .main-view {
   background-color: #f5f6f8;
   height: 92vh;
