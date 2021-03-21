@@ -4,18 +4,14 @@
     show-if-above
     :mini="!drawer || miniState"
     @click.capture="drawerClick"
-    :width="300"
+    :width="240"
     :breakpoint="500"
     bordered
     content-class="side-bar"
   >
     <q-scroll-area class="fit">
-      <q-list padding style="margin-top: 30%">
-        <div
-          v-for="navigation in navPoints"
-          :key="navigation.name"
-          style="margin-left: 14px"
-        >
+      <q-list padding class="menu-list">
+        <div v-for="navigation in navPoints" :key="navigation.name">
           <q-item
             clickable
             v-if="!navigation.subMenu"
@@ -33,6 +29,7 @@
           </q-item>
 
           <q-expansion-item
+            style="font-size: 15px"
             v-else
             :icon="navigation.icon"
             :label="navigation.name"
@@ -47,7 +44,16 @@
         </div>
       </q-list>
 
-      <div @click="miniState = true" class="toggle-btn">
+      <!-- { name: "Settings", icon: "more_horiz", nav: "deals", navColor: "#c2cfe0"
+      } -->
+      <q-item clickable v-ripple>
+        <q-item-section avatar>
+          <q-icon color="#c2cfe0" name="more-horiz" size="15px" />
+        </q-item-section>
+        <q-item-section>Settings</q-item-section>
+      </q-item>
+
+      <div @click="miniState = true" class="toggle-btn absolute-bottom">
         <span class="subtract"></span>
         <span class="toggle-sidebar" :class="{ vanish: miniState }">
           Toggle sidebar</span
@@ -55,9 +61,13 @@
       </div>
     </q-scroll-area>
 
-    <div class="absolute-top q-mb-lg" style="height: 60px">
+    <div class="absolute-top q-mb-lg q-ml-md" style="height: 60px">
       <div class="sidebar-header" :class="{ vanish: miniState }">
         <p class="saaS-kit">SaaS-Kit</p>
+      </div>
+
+      <div v-if="miniState" class="q-mt-md">
+        <p class="saaS-kit">Saas</p>
       </div>
       <div class="flex row q-mb-lg">
         <q-avatar size="44px" class="q-mb-sm">
@@ -94,7 +104,7 @@ export default {
           name: "Home",
           icon: "window",
           nav: "/",
-          navColor: "secondary"
+          navColor: "#c2cfe0"
         },
         {
           name: "Tasks",
@@ -157,12 +167,6 @@ export default {
           icon: "bluetooth",
           nav: "deals",
           navColor: "#c2cfe0"
-        },
-        {
-          name: "Settings",
-          icon: "more_horiz",
-          nav: "deals",
-          navColor: "#c2cfe0"
         }
       ]
     };
@@ -195,9 +199,9 @@ export default {
   box-shadow: 6px 0 18px 0 rgba(0, 0, 0, 0.06);
 }
 .toggle-sidebar {
-  width: 146px;
+  /* width: 146px; */
   height: 17px;
-  margin: 0 0 0 14px;
+  /* margin: 0 0 0 14px; */
   /*font-family: Poppins;*/
   font-size: 11px;
   font-weight: 500;
@@ -297,5 +301,9 @@ export default {
 }
 .vanish {
   display: none;
+}
+.menu-list {
+  margin-top: 50%;
+  border-bottom: 1px solid #c2cfe0;
 }
 </style>
