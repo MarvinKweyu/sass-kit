@@ -55,8 +55,8 @@ export default {
           },
           taskState: "Completed"
         },
-        //  for purpose of the analytics page,the second object has
-        // been duplicated
+        //*  for purpose of the analytics page,the second object has
+        // * been duplicated
         {
           title: "Invite to office meet-up2",
           type: "Call",
@@ -126,6 +126,36 @@ export default {
             name: "Rebecca Moore"
           },
           taskState: "ended"
+        },
+        {
+          title: "Invite to office meet-up11",
+          type: "Call",
+          dueDate: "December 23, 2018",
+          adressee: {
+            image: "https://cdn.quasar.dev/img/avatar.png",
+            name: "Rebecca Moore"
+          },
+          taskState: "Completed"
+        },
+        {
+          title: "Invite to office meet-up12",
+          type: "Call",
+          dueDate: "December 23, 2018",
+          adressee: {
+            image: "https://cdn.quasar.dev/img/avatar.png",
+            name: "Rebecca Moore"
+          },
+          taskState: "Completed"
+        },
+        {
+          title: "Invite to office meet-up12",
+          type: "Call",
+          dueDate: "December 23, 2018",
+          adressee: {
+            image: "https://cdn.quasar.dev/img/avatar.png",
+            name: "Rebecca Moore"
+          },
+          taskState: "Ended"
         }
       ]
     };
@@ -134,17 +164,17 @@ export default {
     //  this will parse the overal analytics for task count
     // display correct completed vs total tasks count based on fetch
     taskAnalysis() {
-      // const completed = this.allTasks.filter(
-      //   task => task.taskState === "Completed"
-      // );
-      // return {
-      //   taskTotal: this.allTasks.length,
-      //   tasksCompleted: completed.length
-      // };
+      const completed = this.allTasks.filter(
+        task => task.taskState === "Completed"
+      );
       return {
-        taskTotal: 10,
-        tasksCompleted: 8
+        taskTotal: this.allTasks.length,
+        tasksCompleted: completed.length
       };
+      // return {
+      //   taskTotal: 10,
+      //   tasksCompleted: 8
+      // };
     },
     topTasks() {
       // eslint-disable-next-line vue/no-side-effects-in-computed-properties
