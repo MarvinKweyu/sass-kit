@@ -3,7 +3,6 @@
     v-model="drawer"
     show-if-above
     :mini="!drawer || miniState"
-    @click.capture="drawerClick"
     :width="240"
     :breakpoint="500"
     bordered
@@ -35,7 +34,7 @@
             :label="navigation.name"
           >
             <q-item-section v-for="item in navigation.subMenu" :key="item.name">
-              <p class="flex justify-center">
+              <p class="flex q-ml-xl">
                 <span class="circle-marker" :class="item.iconClass"></span
                 ><span>{{ item.name }}</span>
               </p>
@@ -44,8 +43,6 @@
         </div>
       </q-list>
 
-      <!-- { name: "Settings", icon: "more_horiz", nav: "deals", navColor: "#c2cfe0"
-      } -->
       <q-item clickable v-ripple>
         <q-item-section avatar>
           <q-icon color="#c2cfe0" name="more-horiz" size="15px" />
@@ -53,8 +50,8 @@
         <q-item-section>Settings</q-item-section>
       </q-item>
 
-      <div @click="miniState = true" class="toggle-btn absolute-bottom">
-        <span class="subtract"></span>
+      <div @click="miniState = !miniState" class="toggle-btn absolute-bottom">
+        <span class="subtract q-mx-md"></span>
         <span class="toggle-sidebar" :class="{ vanish: miniState }">
           Toggle sidebar</span
         >
@@ -215,7 +212,7 @@ export default {
 .subtract {
   width: 14px;
   height: 14px;
-  margin: 1px 14px 2px 0;
+  /* margin: 1px 14px 2px 0; */
   padding: 2px 8px 2px 4px;
   background-color: #c2cfe0;
 }
