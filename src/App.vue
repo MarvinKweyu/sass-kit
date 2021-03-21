@@ -23,6 +23,9 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  font-family: "Poppins";
+}
 .header {
   /*padding: 18px 36px;*/
   height: 60px;
