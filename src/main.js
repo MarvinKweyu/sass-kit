@@ -13,7 +13,8 @@ Vue.component("apexchart", VueApexCharts);
 
 Vue.use(Donut);
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = true;
+Vue.config.performance = true;
 
 new Vue({
   router,

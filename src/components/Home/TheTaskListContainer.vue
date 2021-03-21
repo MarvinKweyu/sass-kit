@@ -5,7 +5,7 @@
         :taskAnalysis="taskAnalysis"
         class="q-mb-md time-board"
       />
-      <div v-for="task in allTasks.splice(0, 3)" :key="task.name">
+      <div v-for="task in topTasks" :key="task.name">
         <TaskDetailCard :taskDetail="task" class="q-mb-sm task-card" />
       </div>
       <div class="flex justify-center show-more">Show more</div>
@@ -55,8 +55,8 @@ export default {
           },
           taskState: "Completed"
         },
-        //  for purpose of the analytics page,the second object has
-        // been duplicated
+        //*  for purpose of the analytics page,the second object has
+        // * been duplicated
         {
           title: "Invite to office meet-up2",
           type: "Call",
@@ -126,6 +126,36 @@ export default {
             name: "Rebecca Moore"
           },
           taskState: "ended"
+        },
+        {
+          title: "Invite to office meet-up11",
+          type: "Call",
+          dueDate: "December 23, 2018",
+          adressee: {
+            image: "https://cdn.quasar.dev/img/avatar.png",
+            name: "Rebecca Moore"
+          },
+          taskState: "Completed"
+        },
+        {
+          title: "Invite to office meet-up12",
+          type: "Call",
+          dueDate: "December 23, 2018",
+          adressee: {
+            image: "https://cdn.quasar.dev/img/avatar.png",
+            name: "Rebecca Moore"
+          },
+          taskState: "Completed"
+        },
+        {
+          title: "Invite to office meet-up12",
+          type: "Call",
+          dueDate: "December 23, 2018",
+          adressee: {
+            image: "https://cdn.quasar.dev/img/avatar.png",
+            name: "Rebecca Moore"
+          },
+          taskState: "Ended"
         }
       ]
     };
@@ -141,6 +171,14 @@ export default {
         taskTotal: this.allTasks.length,
         tasksCompleted: completed.length
       };
+      // return {
+      //   taskTotal: 10,
+      //   tasksCompleted: 8
+      // };
+    },
+    topTasks() {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      return this.allTasks.splice(0, 3);
     }
   }
 };
