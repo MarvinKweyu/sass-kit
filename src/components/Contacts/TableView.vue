@@ -2,14 +2,16 @@
   <div class="q-pa-md">
     <q-markup-table>
       <thead>
-        <tr v-if="selectedCount">
-          <th>
-            <div class="row selected-count flex justify-between">
-              <span class="box-count">{{ selectedCount }}</span>
-              <span> {{ selectedCount }} selected</span>
-              <q-icon name="delete"></q-icon>
-            </div>
-          </th>
+        <tr
+          v-if="selectedCount"
+          class="q-mt-lg"
+          style="border-bottom: 3px solid red"
+        >
+          <div class="row selected-count ">
+            <span class="box-count q-mr-sm q-mt-md">{{ selectedCount }}</span>
+            <span class="q-mr-sm q-mt-md"> {{ selectedCount }} selected</span>
+            <q-icon name="delete" class="q-mt-md"></q-icon>
+          </div>
         </tr>
 
         <tr v-else>
@@ -302,7 +304,7 @@ td {
   color: #707683;
 }
 .selected-count {
-  width: 84px;
+  width: 100%;
   height: 20px;
   margin: 0 16px 0 24px;
   /* font-family: Poppins; */
