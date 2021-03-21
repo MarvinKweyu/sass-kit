@@ -1,9 +1,8 @@
 <template>
   <div class="q-mt-auto">
     <div class="flex row justify-between q-pa-md ">
-      <p class="company-all q-mt-md">
-        <span>Company: </span>
-        <span class="text-style-1">All</span>
+      <p class="company-all q-mt-md row">
+        <span>Company: </span><span class="text-style-1">All</span>
         <span><i class="q-ml-sm fas fa-caret-down "> </i></span>
       </p>
       <div class="q-gutter-sm">

@@ -171,7 +171,7 @@ export default {
         },
         {
           name: "Deals",
-          icon: "bluetooth",
+          icon: "view_column",
           nav: "deals",
           navColor: "#c2cfe0"
         }
@@ -305,7 +305,7 @@ export default {
 .sidebar-header {
   border-bottom: 1px solid #ebeff2;
   margin-bottom: 12px;
-  height: 60px;
+  /* height: 60px; */
 }
 .vanish {
   display: none;
