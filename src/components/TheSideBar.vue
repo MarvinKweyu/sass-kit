@@ -1,58 +1,78 @@
 <template>
-  <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="side-bar">
-    <div class="sidebar-header">
-      <p class="saaS-kit">SaaS-Kit</p>
-    </div>
-
-    <div class="flex row" style="margin-left: 14px">
-      <q-avatar size="44px">
-        <img
-          :src="userDetail.image"
-          :alt="userDetail.name"
-          width="100%"
-          height="100%"
-        />
-      </q-avatar>
-      <div>
-        <p class="sierra-ferguson">{{ userDetail.name }}</p>
-        <p class="sfergusongmailcom">{{ userDetail.email }}</p>
-      </div>
-    </div>
-    <q-list bordered>
-      <div
-        v-for="navigation in navPoints"
-        :key="navigation.name"
-        style="margin-left: 14px"
-      >
-        <q-item
-          clickable
-          v-if="!navigation.subMenu"
-          v-ripple
-          @click="navigate(navigation.nav)"
+  <q-drawer
+    v-model="drawer"
+    show-if-above
+    :mini="!drawer || miniState"
+    @click.capture="drawerClick"
+    :width="300"
+    :breakpoint="500"
+    bordered
+    content-class="side-bar"
+  >
+    <q-scroll-area class="fit">
+      <q-list padding style="margin-top: 30%">
+        <div
+          v-for="navigation in navPoints"
+          :key="navigation.name"
+          style="margin-left: 14px"
         >
-          <q-item-section avatar>
-            <q-icon :color="navigation.navColor" :name="navigation.icon" />
-          </q-item-section>
-          <q-item-section>{{ navigation.name }}</q-item-section>
-        </q-item>
+          <q-item
+            clickable
+            v-if="!navigation.subMenu"
+            v-ripple
+            @click="navigate(navigation.nav)"
+          >
+            <q-item-section avatar>
+              <q-icon
+                :color="navigation.navColor"
+                :name="navigation.icon"
+                size="15px"
+              />
+            </q-item-section>
+            <q-item-section>{{ navigation.name }}</q-item-section>
+          </q-item>
 
-        <q-expansion-item
-          v-else
-          :icon="navigation.icon"
-          :label="navigation.name"
+          <q-expansion-item
+            v-else
+            :icon="navigation.icon"
+            :label="navigation.name"
+          >
+            <q-item-section v-for="item in navigation.subMenu" :key="item.name">
+              <p class="flex justify-center">
+                <span class="circle-marker" :class="item.iconClass"></span
+                ><span>{{ item.name }}</span>
+              </p>
+            </q-item-section>
+          </q-expansion-item>
+        </div>
+      </q-list>
+
+      <div @click="miniState = true" class="toggle-btn">
+        <span class="subtract"></span>
+        <span class="toggle-sidebar" :class="{ vanish: miniState }">
+          Toggle sidebar</span
         >
-          <q-item-section v-for="item in navigation.subMenu" :key="item.name">
-            <p class="flex justify-center">
-              <span class="circle-marker" :class="item.iconClass"></span
-              ><span>{{ item.name }}</span>
-            </p>
-          </q-item-section>
-        </q-expansion-item>
       </div>
-    </q-list>
-    <div @click="drawStatus()" class="toggle-btn">
-      <span class="subtract"></span>
-      <span class="toggle-sidebar"> Toggle sidebar</span>
+    </q-scroll-area>
+
+    <div class="absolute-top q-mb-lg" style="height: 60px">
+      <div class="sidebar-header" :class="{ vanish: miniState }">
+        <p class="saaS-kit">SaaS-Kit</p>
+      </div>
+      <div class="flex row q-mb-lg">
+        <q-avatar size="44px" class="q-mb-sm">
+          <img
+            :src="userDetail.image"
+            :alt="userDetail.name"
+            width="100%"
+            height="100%"
+          />
+        </q-avatar>
+        <div :class="{ vanish: miniState }">
+          <p class="sierra-ferguson">{{ userDetail.name }}</p>
+          <p class="sfergusongmailcom">{{ userDetail.email }}</p>
+        </div>
+      </div>
     </div>
   </q-drawer>
 </template>
@@ -62,8 +82,8 @@ export default {
   name: "TheSideBar",
   data() {
     return {
-      leftDrawerOpen: false,
-      miniMode: false,
+      drawer: false,
+      miniState: false,
       userDetail: {
         name: "Sierra Ferguson",
         email: "s.ferguson@gmail.com",
@@ -148,11 +168,19 @@ export default {
     };
   },
   methods: {
-    drawStatus() {
-      this.leftDrawerOpen = !this.leftDrawerOpen;
+    drawerClick(e) {
+      // if in "mini" state and user
+      // click on drawer, we switch it to "normal" mode
+      if (this.miniState) {
+        this.miniState = false;
+
+        // notice we have registered an event with capture flag;
+        // we need to stop further propagation as this click is
+        // intended for switching drawer to "normal" mode only
+        e.stopPropagation();
+      }
     },
     navigate(navPath) {
-      console.log(navPath);
       // go to specified route
       this.$router.push(navPath);
     }
@@ -165,7 +193,6 @@ export default {
   /*margin: 60px 0 60px 60px;*/
   /*padding: 17px 0 22px;*/
   box-shadow: 6px 0 18px 0 rgba(0, 0, 0, 0.06);
-  height: 100%;
 }
 .toggle-sidebar {
   width: 146px;
@@ -196,7 +223,7 @@ export default {
 .saaS-kit {
   /*width: 69px;*/
   height: 26px;
-  margin: 17px 163px 42px 24px;
+  /* margin: 17px 163px 42px 24px; */
   font-family: OpenSans, Poppins, serif;
   font-size: 18px;
   font-weight: 600;
@@ -267,5 +294,8 @@ export default {
   border-bottom: 1px solid #ebeff2;
   margin-bottom: 12px;
   height: 60px;
+}
+.vanish {
+  display: none;
 }
 </style>
