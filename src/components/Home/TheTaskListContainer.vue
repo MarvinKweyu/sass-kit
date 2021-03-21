@@ -5,7 +5,7 @@
         :taskAnalysis="taskAnalysis"
         class="q-mb-md time-board"
       />
-      <div v-for="task in allTasks.splice(0, 3)" :key="task.name">
+      <div v-for="task in topTasks" :key="task.name">
         <TaskDetailCard :taskDetail="task" class="q-mb-sm task-card" />
       </div>
       <div class="flex justify-center show-more">Show more</div>
@@ -134,13 +134,21 @@ export default {
     //  this will parse the overal analytics for task count
     // display correct completed vs total tasks count based on fetch
     taskAnalysis() {
-      const completed = this.allTasks.filter(
-        task => task.taskState === "Completed"
-      );
+      // const completed = this.allTasks.filter(
+      //   task => task.taskState === "Completed"
+      // );
+      // return {
+      //   taskTotal: this.allTasks.length,
+      //   tasksCompleted: completed.length
+      // };
       return {
-        taskTotal: this.allTasks.length,
-        tasksCompleted: completed.length
+        taskTotal: 10,
+        tasksCompleted: 8
       };
+    },
+    topTasks() {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      return this.allTasks.splice(0, 3);
     }
   }
 };
