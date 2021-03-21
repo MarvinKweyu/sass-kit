@@ -1,18 +1,22 @@
 <template>
   <q-header class="search-bar">
     <div class="row flex justify-between">
-      <div class="q-mt-md q-ml-lg row">
-        <q-icon
-          name="search"
-          class="icon search q-mb-0"
-          style="font-size: 18px;"
-        />
+      <div class="q-mt-none q-ml-lg row">
         <q-input
           borderless
           v-model="searchTerm"
-          class="search q-mb-lg q-pb-lg"
+          input-class="text-left"
+          class="q-ml-md search"
           :placeholder="searchPlaceHolder"
-        />
+        >
+          <template v-slot:prepend>
+            <q-icon
+              name="search"
+              class="icon search"
+              style="font-size: 18px;"
+            />
+          </template>
+        </q-input>
       </div>
       <div class="q-pa-md"><i class="far fa-bell icon"></i></div>
     </div>
@@ -44,8 +48,6 @@ export default {
 .search {
   /*width: 895px;*/
   height: 18px;
-  /*  since we are using q-icons use font size */
-  font-size: 18px;
   flex-grow: 0;
   /*margin: 1px 0 1px 12px;*/
   font-size: 12px;
@@ -56,7 +58,6 @@ export default {
   letter-spacing: 0.12px;
   text-align: left;
   color: #90a0b7;
-  /*color: red;*/
 }
 .icon {
   color: #90a0b7;
