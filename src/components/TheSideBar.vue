@@ -6,26 +6,30 @@
     :width="240"
     :breakpoint="500"
     bordered
+    class="side"
     content-class="side-bar"
   >
     <q-scroll-area class="fit">
-      <q-list padding class="menu-list">
+      <q-list padding class="menu-list" :class="{ large: miniState }">
         <div v-for="navigation in navPoints" :key="navigation.name">
-          <q-item
-            clickable
+          <router-link
+            :to="navigation.nav"
             v-if="!navigation.subMenu"
-            v-ripple
-            @click="navigate(navigation.nav)"
+            class="nav-links"
+            exact-active-class="active-route"
+            exact
           >
-            <q-item-section avatar>
-              <q-icon
-                :color="navigation.navColor"
-                :name="navigation.icon"
-                size="15px"
-              />
-            </q-item-section>
-            <q-item-section>{{ navigation.name }}</q-item-section>
-          </q-item>
+            <q-item clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon
+                  :color="navigation.navColor"
+                  :name="navigation.icon"
+                  size="15px"
+                />
+              </q-item-section>
+              <q-item-section>{{ navigation.name }}</q-item-section>
+            </q-item>
+          </router-link>
 
           <q-expansion-item
             style="font-size: 15px"
@@ -51,19 +55,25 @@
       </q-item>
 
       <div @click="miniState = !miniState" class="toggle-btn absolute-bottom">
-        <span class="subtract q-mx-md"></span>
+        <span class="subtract q-mx-md" :class="{ blueToggle: miniState }"
+          >|</span
+        >
         <span class="toggle-sidebar" :class="{ vanish: miniState }">
           Toggle sidebar</span
         >
       </div>
     </q-scroll-area>
 
-    <div class="absolute-top q-mb-lg q-ml-md" style="height: 60px">
-      <div class="sidebar-header" :class="{ vanish: miniState }">
+    <div class="absolute-top q-mb-lg q-ml-sm" style="height: 60px">
+      <div class="sidebar-header q-mt-md" :class="{ vanish: miniState }">
         <p class="saaS-kit">SaaS-Kit</p>
       </div>
 
-      <div v-if="miniState" class="q-mt-md">
+      <div
+        v-if="miniState"
+        class="q-mt-md q-mb-sm"
+        style="border-bottom: 1px solid #ebeff2"
+      >
         <p class="saaS-kit">Saas</p>
       </div>
       <div class="flex row q-mb-lg">
@@ -98,8 +108,8 @@ export default {
       },
       navPoints: [
         {
-          name: "Home",
-          icon: "window",
+          name: "Dashboard",
+          icon: "grid_view",
           nav: "/",
           navColor: "#c2cfe0"
         },
@@ -215,6 +225,7 @@ export default {
   /* margin: 1px 14px 2px 0; */
   padding: 2px 8px 2px 4px;
   background-color: #c2cfe0;
+  color: #ffffff;
 }
 .toggle-btn {
   cursor: pointer;
@@ -302,5 +313,22 @@ export default {
 .menu-list {
   margin-top: 50%;
   border-bottom: 1px solid #c2cfe0;
+}
+.side {
+  box-shadow: 6px 0 18px 0 rgba(0, 0, 0, 0.06);
+}
+.large {
+  margin-top: 110px !important;
+}
+
+.blueToggle {
+  background-color: #109cf1;
+}
+.nav-links {
+  text-decoration: none;
+  color: black;
+}
+.active-route {
+  color: #109cf1;
 }
 </style>
