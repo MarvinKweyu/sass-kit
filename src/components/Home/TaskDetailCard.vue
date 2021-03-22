@@ -25,7 +25,7 @@
           <span>{{ taskDetail.adressee.name }}</span>
         </div>
         <div class="row">
-          <div v-if="detailsEdit" class="row q-mr-sm q-mt-xs">
+          <div v-if="detailsEdit" class="row q-mr-sm q-mt-xs detailsEdit">
             <span class="ellipse orange q-mr-sm"></span>
             <span class="ellipse green q-mr-sm"></span>
             <q-icon name="create"></q-icon>
