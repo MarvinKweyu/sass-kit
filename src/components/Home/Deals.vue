@@ -45,9 +45,14 @@ export default {
         dataLabels: {
           enabled: false
         },
-        subtitle: {
-          text: "Closed Deals",
-          align: "left"
+        // subtitle: {
+        //   text: "Closed Deals",
+        //   align: "left"
+        // },
+        legend: {
+          position: "top",
+          horizontalAlign: "left",
+          offsetX: -10
         },
         stroke: {
           curve: "smooth"

@@ -2,12 +2,8 @@
   <div class="q-pa-md">
     <q-markup-table>
       <thead>
-        <tr
-          v-if="selectedCount"
-          class="q-mt-lg"
-          style="border-bottom: 3px solid red"
-        >
-          <div class="row selected-count ">
+        <tr v-if="selectedCount" class="q-mt-lg">
+          <div class="row selected-count flex">
             <span class="box-count q-mr-sm q-mt-md">{{ selectedCount }}</span>
             <span class="q-mr-sm q-mt-md"> {{ selectedCount }} selected</span>
             <q-icon name="delete" class="q-mt-md"></q-icon>
@@ -25,7 +21,7 @@
           </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody style="border-top: 3px solid red">
         <tr
           v-for="info in tableData"
           :key="info.name"

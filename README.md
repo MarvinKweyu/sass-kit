@@ -6,6 +6,17 @@
 
 **Project board:** https://github.com/MarvinKweyu/friendly-chainsaw-sass-kit/projects/1
 
+**Sample output images**
+
+Dashboard
+![Dashboard](./images/dashboard.png)
+
+
+Contacts
+![Dashboard](./images/contacts.png)
+
+Toggled sidebar
+![Dashboard](./images/toggled-sidebar.png)
 ## Project setup
 ```
 npm install
