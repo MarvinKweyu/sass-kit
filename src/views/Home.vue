@@ -42,6 +42,7 @@ export default {
   box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.06);
 }
 .sub-section-two {
+  /*min-width: 450px !important;*/
 }
 .sub-section-one {
   margin-right: 30px;
