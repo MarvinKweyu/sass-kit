@@ -13,13 +13,13 @@
     <q-card-section>
       <vc-donut
         has-legend
-        legend-placement="right"
+        :legend-placement="ringLegendPosition"
         :sections="sections"
         :size="ringSize"
         unit="%"
         :auto-adjust-text-size="true"
-        :start-angle="90"
-        :thickness="10"
+        :start-angle="ringStartAngle"
+        :thickness="ringThickness"
       >
         <span class="percentage"> {{ completedPercentage.value }}% </span>
       </vc-donut>
@@ -50,6 +50,9 @@ export default {
         }
       ],
       ringSize: 60,
+      ringThickness: 7,
+      ringStartAngle: 90,
+      ringLegendPosition: "right",
       sections: [
         { label: "Active", value: 25, color: "#ffb946" },
         { label: "Ended", value: 15, color: "#f7685b" },
