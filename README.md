@@ -1,6 +1,7 @@
 # friendly-chainsaw-sass-kit
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/bc5dd36e-f294-4018-9d2f-9e0303944742/deploy-status)](https://app.netlify.com/sites/friendly-chainsaw-sass-kit/deploys)
+[![CircleCI](https://circleci.com/gh/MarvinKweyu/friendly-chainsaw-sass-kit.svg?style=svg)](https://circleci.com/gh/MarvinKweyu/ColorDetect)
 
 **Live site:** https://friendly-chainsaw-sass-kit.netlify.app/ 
 
