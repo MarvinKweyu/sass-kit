@@ -16,10 +16,10 @@ jobs:
         - ./node_modules
     - run:
         name: starting a development server
-        command: npm run dev
+        command: npm run serve
         background: true
     - run: # loop, sleep 0.1 second and check ip 8080 every loop
-        name: waiting for server to be responsive (for e2e)
+        name: waiting for server to be responsive
         command: |
             while ! nc -z localhost 8080; do
               sleep 0.1
