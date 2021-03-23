@@ -58,10 +58,10 @@ describe("TableView.vue", () => {
   });
 
   test("table shows the count of selected contacts", () => {
+    expect(wrapper.vm.$data.selectedCount).toBe(null);
     expect(wrapper.find(".selected-count").exists()).toBe(false);
-    // wrapper.setData({ selectedCount: null });
-    // wrapper.find(".indiv-mail").trigger("click");
-    // wrapper.setData({ selectedCount: 1 });
+
+    expect((wrapper.vm.$data.selectedCount = 1)).toBe(1);
     // expect(wrapper.text()).toContain("1 selected");
   });
 });
