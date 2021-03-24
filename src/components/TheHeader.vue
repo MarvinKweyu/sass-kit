@@ -35,6 +35,11 @@ export default {
     searchPlaceHolder() {
       return this.$store.getters.searchPlaceHolder;
     }
+  },
+  watch: {
+    searchTerm: function(newVal) {
+      this.$store.commit("setSearchTerm", newVal);
+    }
   }
 };
 </script>
