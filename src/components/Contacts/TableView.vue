@@ -21,9 +21,9 @@
           </th>
         </tr>
       </thead>
-      <tbody style="border-top: 3px solid red">
+      <tbody>
         <tr
-          v-for="info in tableData"
+          v-for="info in filteredContacts"
           :key="info.name"
           @click="selectContact(info.name)"
           class="table-row"
@@ -200,6 +200,17 @@ export default {
       }
       // update selected count
       this.selectedCount = this.selectedData.length;
+    }
+  },
+  computed: {
+    filteredContacts() {
+      // use search bar. Display only contacts that have been searched for when input is present
+      return this.tableData.filter(contact =>
+        contact.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    },
+    searchTerm() {
+      return this.$store.getters.searchTerm;
     }
   }
 };
