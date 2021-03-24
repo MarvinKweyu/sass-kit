@@ -5,11 +5,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    searchBarPlaceHolder: null
+    searchBarPlaceHolder: null,
+    searchTerm: null
   },
   mutations: {
     setSearchPlaceHolder(state, holder) {
       state.searchBarPlaceHolder = holder;
+    },
+    setSearchTerm(state, searchItem) {
+      state.searchTerm = searchItem;
     }
   },
   actions: {},
@@ -17,6 +21,9 @@ export default new Vuex.Store({
   getters: {
     searchPlaceHolder(state) {
       return state.searchBarPlaceHolder;
+    },
+    searchTerm(state) {
+      return state.searchTerm;
     }
   }
 });
