@@ -186,8 +186,9 @@ export default {
       const selectedContactIndex = this.selectedData.findIndex(
         contact => contact.name === individualName
       );
-
+      // findIndex returns -1 if there is no value found
       if (selectedContactIndex > -1) {
+        // since this contact was already selected, change the boolean selected value to false
         //  change status of previously selected item to false
         selectedContact.selected = false;
         //  remove the clicked selected contact from the array of those selected
