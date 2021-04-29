@@ -205,10 +205,14 @@ export default {
   },
   computed: {
     filteredContacts() {
-      // use search bar. Display only contacts that have been searched for when input is present
-      return this.tableData.filter(contact =>
-        contact.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
+      if (this.searchTerm) {
+        // use search bar. Display only contacts that have been searched for when input is present
+        return this.tableData.filter(contact =>
+          contact.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
+      } else {
+        return this.tableData;
+      }
     },
     searchTerm() {
       return this.$store.getters.searchTerm;
