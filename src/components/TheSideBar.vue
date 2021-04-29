@@ -54,7 +54,7 @@
         <q-item-section>Settings</q-item-section>
       </q-item>
 
-      <div @click="miniState = !miniState" class="toggle-btn absolute-bottom">
+      <div @click="toggleSideBar()" class="toggle-btn absolute-bottom">
         <span class="subtract q-mx-md" :class="{ blueToggle: miniState }"
           >|</span
         >
@@ -100,7 +100,6 @@ export default {
   data() {
     return {
       drawer: false,
-      miniState: false,
       userDetail: {
         name: "Sierra Ferguson",
         email: "s.ferguson@gmail.com",
@@ -178,6 +177,11 @@ export default {
       ]
     };
   },
+  computed: {
+    miniState() {
+      return this.$store.getters.miniState;
+    }
+  },
   methods: {
     drawerClick(e) {
       // if in "mini" state and user
@@ -194,6 +198,9 @@ export default {
     navigate(navPath) {
       // go to specified route
       this.$router.push(navPath);
+    },
+    toggleSideBar() {
+      this.$store.commit("changeMiniState");
     }
   }
 };
