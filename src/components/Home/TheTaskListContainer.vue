@@ -203,6 +203,7 @@ export default {
 }
 .task-card {
   cursor: pointer;
+  height: 10% !important;
 }
 .time-board {
   margin: 24px 0;
