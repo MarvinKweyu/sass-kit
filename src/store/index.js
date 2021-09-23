@@ -6,7 +6,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     searchBarPlaceHolder: null,
-    searchTerm: null
+    searchTerm: null,
+    miniState: false
   },
   mutations: {
     setSearchPlaceHolder(state, holder) {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     },
     setSearchTerm(state, searchItem) {
       state.searchTerm = searchItem;
+    },
+    changeMiniState(state) {
+      state.miniState = !state.miniState;
     }
   },
   actions: {},
@@ -24,6 +28,9 @@ export default new Vuex.Store({
     },
     searchTerm(state) {
       return state.searchTerm;
+    },
+    miniState(state) {
+      return state.miniState;
     }
   }
 });

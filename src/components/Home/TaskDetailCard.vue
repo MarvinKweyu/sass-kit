@@ -79,7 +79,7 @@ export default {
 .my-card {
   width: 100%;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08);
-  /* margin: 24px; */
+  height: 10vh !important;
   /* padding: 16px; */
 }
 .task-title {

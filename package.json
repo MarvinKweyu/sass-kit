@@ -12,6 +12,7 @@
     "@quasar/extras": "^1.0.0",
     "apexcharts": "^3.26.0",
     "core-js": "^3.6.5",
+    "normalize.css": "^8.0.1",
     "quasar": "^1.0.0",
     "vue": "^2.6.11",
     "vue-apexcharts": "^1.6.0",
